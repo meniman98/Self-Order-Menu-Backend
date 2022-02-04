@@ -1,0 +1,12 @@
+create table drink (id bigint not null auto_increment, drink_name varchar(255), flavour varchar(255), image_url varchar(255), price double precision not null, size varchar(255), primary key (id)) engine=InnoDB;
+create table food (id bigint not null auto_increment, food_desc varchar(255), food_name varchar(255), image_url varchar(255), price double precision not null, primary key (id)) engine=InnoDB;
+create table food_deals (meal_id bigint not null, food_id bigint not null, primary key (meal_id, food_id)) engine=InnoDB;
+create table meal_deal (id bigint not null auto_increment, price double precision not null, primary key (id)) engine=InnoDB;
+create table meal_deal_drink_set (meal_deal_id bigint not null, drink_set_id bigint not null, primary key (meal_deal_id, drink_set_id)) engine=InnoDB;
+create table salad (id bigint not null auto_increment, image_url varchar(255), price double precision not null, salad_name varchar(255), primary key (id)) engine=InnoDB;
+alter table food_deals add constraint UK_jvw2j5svj1uhniwthuxyd4ct7 unique (food_id);
+alter table meal_deal_drink_set add constraint UK_hseipfygddvohtdaxxhy3n70l unique (drink_set_id);
+alter table food_deals add constraint FKgpoc3u5lf3m9vafdfruw34byp foreign key (food_id) references food (id);
+alter table food_deals add constraint FKqkl0oa590jsli6ar5haic9uf9 foreign key (meal_id) references meal_deal (id);
+alter table meal_deal_drink_set add constraint FKgq4j97x3shmiwkk1kjel6sy0o foreign key (drink_set_id) references drink (id);
+alter table meal_deal_drink_set add constraint FKe2s8hr6ido52dgsp8ecfibft0 foreign key (meal_deal_id) references meal_deal (id);
