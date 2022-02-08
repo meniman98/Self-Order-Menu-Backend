@@ -9,16 +9,15 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "drink")
-public class Drink {
+public class Drink extends Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String drinkName;
     private String size;
     private String flavour;
-    private double price;
-    private String imageUrl;
+
+
 
     @Override
     public boolean equals(Object o) {

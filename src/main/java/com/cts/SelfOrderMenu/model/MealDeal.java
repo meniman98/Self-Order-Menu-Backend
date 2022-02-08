@@ -16,10 +16,7 @@ public class MealDeal {
     private long id;
 
     @OneToMany(fetch = FetchType.EAGER)
-    Set<Food> foodSet;
-
-    @OneToMany
-    Set<Drink> drinkSet;
+    Set<Item> itemSet;
 
     private double price;
 

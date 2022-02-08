@@ -9,14 +9,12 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "food")
-public class Food {
+public class Food extends Item {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String foodName;
-    private double price;
-    private String imageUrl;
-    private String foodDesc;
+
 
     @Override
     public boolean equals(Object o) {

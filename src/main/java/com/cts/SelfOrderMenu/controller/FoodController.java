@@ -44,8 +44,8 @@ public class FoodController {
     Food editFood(@RequestBody Food newFood, @PathVariable Long id) {
         return foodRepo.findById(id)
                 .map(oldFood -> {
-                    oldFood.setFoodName(newFood.getFoodName());
-                    oldFood.setFoodDesc(newFood.getFoodDesc());
+                    oldFood.setName(newFood.getName());
+                    oldFood.setDescription(newFood.getDescription());
                     oldFood.setPrice(newFood.getPrice());
                     oldFood.setImageUrl(newFood.getImageUrl());
                     return foodRepo.save(oldFood);
