@@ -3,7 +3,6 @@ package com.cts.SelfOrderMenu.controller;
 
 import com.cts.SelfOrderMenu.model.Food;
 import com.cts.SelfOrderMenu.repo.FoodRepo;
-import com.cts.SelfOrderMenu.repo.MealDealRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +16,14 @@ public class FoodController {
     @Autowired
     FoodRepo foodRepo;
 
-    @Autowired
-    MealDealRepo mealDealRepo;
-
     @GetMapping("get")
-    public List<Food> getAllProducts() {
+    public List<Food> getAllFoods() {
         return foodRepo.findAll();
     }
 
     @GetMapping("get/{id}")
     public @ResponseBody
-    Optional<Food> getSingleProduct(@PathVariable Long id) {
+    Optional<Food> getSingleFood(@PathVariable Long id) {
         return foodRepo.findById(id);
     }
 
