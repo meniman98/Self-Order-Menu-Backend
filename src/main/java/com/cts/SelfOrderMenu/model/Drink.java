@@ -14,7 +14,11 @@ public class Drink extends Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "size", columnDefinition = "double default 0.0")
     private String size;
+
+    @Column(name = "flavour", columnDefinition = "double default 0.0")
     private String flavour;
 
 

@@ -8,23 +8,22 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
-@Entity
+@MappedSuperclass
 public abstract class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private long id;
 
-    @Column(name = "name")
+    @Column(name = "name", columnDefinition = "varchar(255) default 'Some item'")
     private String name;
 
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "double default 0.0")
     private double price;
 
     @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "varchar(255) default 'Tasty item'")
     private String description;
 }

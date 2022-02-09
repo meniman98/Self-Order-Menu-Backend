@@ -11,12 +11,16 @@ import java.util.Set;
 @Entity
 @Table(name = "meal_deal")
 public class MealDeal {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @OneToMany(fetch = FetchType.EAGER)
-    Set<Item> itemSet;
+    Set<Food> foodSet;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    Set<Drink> drinkSet;
 
     private double price;
 
