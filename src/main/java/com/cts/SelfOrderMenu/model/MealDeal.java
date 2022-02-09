@@ -22,6 +22,10 @@ public class MealDeal {
     @OneToMany(fetch = FetchType.EAGER)
     Set<Drink> drinkSet;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    Set<Salad> saladSet;
+
+    @Column(name = "price", columnDefinition = "double default 0.0")
     private double price;
 
     @Override
